@@ -1,0 +1,57 @@
+<div class="app-container">
+    <div class="slds-float_left">
+        <div class="slds-p-around_medium">
+            <div *ngIf="error" class="error-message-show">
+                Please try after sometime.
+            </div>
+            <div class="slds-grid slds-grid_vertical-align-start slds-text-heading--medium">
+                <h3>Currency converter</h3>
+            </div>
+            <div class="slds-grid slds-grid_vertical-align-start slds-text-heading--small slds-m-bottom--small slds-m-top--small">
+                Type in amount and select currency:
+            </div>
+            <div class="slds-grid slds-grid_vertical-align-start">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <input id="from-amount" decimalValidation="true"  placeholder="0.00" class="slds-input" [(ngModel)]="fromAmount" (ngModelChange)="calculate()" />
+                    </div>
+                </div>
+                <div class="slds-form-element slds-m-left--medium">
+                    <div class="slds-form-element__control">
+                        <div class="slds-select_container">
+                            <select id="fromCurrency" class="slds-select slds-theme--shade currency-dropdown-width" [(ngModel)]="fromCurrency"  (ngModelChange)="convert(false)"> 
+                                <option *ngFor="let rate of rates" [value]="rate.id">{{ rate.id }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-grid slds-grid_vertical-align-start slds-text-heading--small slds-m-bottom--small slds-m-top--small">
+                Converted amount:
+            </div>
+            <div class="slds-grid slds-grid_vertical-align-start">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <input id="to-amount" placeholder="0.00" disabled class="slds-input disabled-text" [(ngModel)]="toAmount" />
+                    </div>
+                </div>
+                <div class="slds-form-element slds-m-left--medium">
+                    <div class="slds-form-element__control">
+                        <div class="slds-select_container">
+                            <select id="toCurrency" class="slds-select slds-theme--shade currency-dropdown-width" [(ngModel)]="toCurrency"  (ngModelChange)="calculate()"> 
+                                <option *ngFor="let rate of rates" [value]="rate.id">{{ rate.id }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="disclaimer-link" (click)="showDisclaimer = !showDisclaimer">
+                <span class="slds-float--right">Disclaimer</span>
+            </div>
+            <div class="disclaimer-info" [ngClass]="{'disclaimer-visible': showDisclaimer}">
+                The Home depot cannot guarantee the accuracy of the exchange rates displayed.
+            </div>
+        </div>
+    </div>
+</div>
+
