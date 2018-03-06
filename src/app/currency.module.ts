@@ -24,7 +24,7 @@ export class MaterialModule {}
     ],
     
   declarations: [ CurrencyComponent,RootComponent,DecimalValidation],
-  bootstrap: [RootComponent,CurrencyComponent],
+  bootstrap: [RootComponent],
   providers: []
 })
 
