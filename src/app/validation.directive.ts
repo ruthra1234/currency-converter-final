@@ -13,7 +13,7 @@ export class DecimalValidation {
 
     // Allow key codes for special events. Reflect :
     // Backspace, tab, end, home
-    private specialKeys: Array<string> = [ 'Backspace', 'Tab', 'End', 'Home' ];
+    private specialKeys: Array<string> = [ 'Backspace', 'Delete', 'Tab', 'End', 'Home', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown' ];
 
     constructor(private el: ElementRef) {
     }
